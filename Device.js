@@ -24,7 +24,7 @@ if (!fs.existsSync(dirPath)) {
 const certPath = path.join(__dirname, 'devCerts');
 const intmdtCertPath = path.join(certPath, 'intermediate.crt');
 const deviceCertPath = path.join(certPath, 'device.crt');
-
+const deviceKeyPath = path.join(certPath, 'device.key');
 
 
 
@@ -130,23 +130,23 @@ function computeHash() {//Probably not required any more as we can directly sign
 } 
 */  
 
-function generateSignature() {//Probably not required any more as we can directly sign the data without hashing it separately. But keeping it for now.
-    // Implement signature generation logic here
-    const devicePrivateKey = fs.readFileSync(
-        'E:/certs/device.key',
-        'utf8'
-    );
-    DeviceSignature = crypto.sign(
-        null,
-        DeviceHash,
-        devicePrivateKey
-    );
-    console.log(cstrBlueStart + "Generated Device Signature:", DeviceSignature.toString('hex') + cstrSplStringEnd);
-}
+// function generateSignature() {//Probably not required any more as we can directly sign the data without hashing it separately. But keeping it for now.
+//     // Implement signature generation logic here
+//     const devicePrivateKey = fs.readFileSync(
+//         deviceKeyPath,
+//         'utf8'
+//     );
+//     DeviceSignature = crypto.sign(
+//         null,
+//         DeviceHash,
+//         devicePrivateKey
+//     );
+//     console.log(cstrBlueStart + "Generated Device Signature:", DeviceSignature.toString('hex') + cstrSplStringEnd);
+// }
 
 function generateSignatureV2() {
     const devicePrivateKey = fs.readFileSync(
-        'E:/certs/device.key',
+        deviceKeyPath,
         'utf8'
     );
 

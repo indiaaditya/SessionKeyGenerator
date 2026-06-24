@@ -36,8 +36,8 @@ var sharedSymmetricAESKeyBuffer = null;
 var sharedSymmetricAESKeyString = null;
 var wifiCredentials =
 {
-    ssid: 'MyHome',
-    password: 'abc123456'
+    ssid: 'MyHome2',
+    password: 'abc123789'
 };
 
 
